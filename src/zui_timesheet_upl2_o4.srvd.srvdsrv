@@ -1,0 +1,11 @@
+@EndUserText: {
+  label: 'Service Definition for ZC_TIMESHEET_UPL2'
+}
+@ObjectModel: {
+  leadingEntity: {
+    name: 'ZC_TIMESHEET_UPL2'
+  }
+}
+define service ZUI_TIMESHEET_UPL2_O4 provider contracts odata_v4_ui {
+  expose ZC_TIMESHEET_UPL2;
+}

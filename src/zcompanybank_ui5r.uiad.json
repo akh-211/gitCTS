@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Link Company & Bank Master Data",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Company Bank Master Data"
+  },
+  "ui5AppDetails": {
+    "appId": "cbm.companybank"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_BBEAD7A72DAB286807D0D53A0334CB4BCE65DB7D_TM",
+    "semanticObject": "CompanyBank",
+    "action": "INSERT",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_BBEAD7A72DAB286807D0D53A0334CB4BCE65DB7D_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Company Bank Master Data",
+        "subtitle": "Link Company & Bank Master Data"
+      }
+    }
+  ]
+}

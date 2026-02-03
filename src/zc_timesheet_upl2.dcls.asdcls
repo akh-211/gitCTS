@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZC_TIMESHEET_UPL2'
+@MappingRole: true
+define role ZC_TIMESHEET_UPL2 {
+  grant select on ZC_TIMESHEET_UPL2
+  where INHERITING CONDITIONS FROM ENTITY ZR_TIMESHEET_UPL2 REPLACING { ROOT WITH _BaseEntity };
+}

@@ -1,0 +1,12 @@
+@EndUserText: {
+  label: 'Service Definition for ZC_RCOMPANY_BANK'
+}
+@ObjectModel: {
+  leadingEntity: {
+    name: 'ZC_RCOMPANY_BANK'
+  }
+}
+define service ZUI_RCOMPANY_BANK_O4 provider contracts odata_v4_ui {
+  expose ZC_RCOMPANY_BANK;
+  expose ZC_RCOMPANY_BANK_DETAIL;
+}

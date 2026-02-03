@@ -1,0 +1,6 @@
+@EndUserText.label: 'ZR_TIMESHEET_UPL2'
+@MappingRole: true
+define role ZR_TIMESHEET_UPL2 {
+  grant select on ZR_TIMESHEET_UPL2
+  where TRUE;
+}

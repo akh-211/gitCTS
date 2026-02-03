@@ -1,0 +1,52 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'MasterTemplate', 
+    typeNamePlural: 'MasterTemplates', 
+    title: {
+      type: #STANDARD, 
+      label: 'Master Template', 
+      value: 'Objectid'
+    }
+  }
+}
+annotate view ZI_MasterTemplate with
+{
+  @UI.identification: [ {
+    position: 1,
+    label: 'Object ID' 
+  } ]
+  @UI.lineItem: [ {
+    position: 1,
+    label: 'Object ID'
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_MasterTemplate', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'Master Template', 
+    position: 1 
+  } ]
+  Objectid;
+  
+  @UI.identification: [ {
+    position: 2 , 
+    label: 'Filename'
+  } ]
+  @UI.lineItem: [ {
+    position: 2 , 
+    label: 'Filename'
+  } ]
+  Filename;
+  
+  @UI.hidden: true
+  Mietype;
+  
+  @UI.identification: [ {
+    position: 3 
+  } ]
+  @UI.lineItem: [ {
+    position: 3 
+  } ]
+  Attachment;
+}

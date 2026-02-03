@@ -1,0 +1,35 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "An SAP Fiori application.",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "timesheet"
+  },
+  "ui5AppDetails": {
+    "appId": "tsupload"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_435315C09DBF269E5B197EE6A966A58527AA577C_TM",
+    "semanticObject": "ts_upload",
+    "action": "upload",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_435315C09DBF269E5B197EE6A966A58527AA577C_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "timesheet",
+        "subtitle": "Upload data Timesheet with Excel"
+      }
+    }
+  ]
+}

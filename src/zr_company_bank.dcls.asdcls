@@ -1,0 +1,6 @@
+@EndUserText.label: 'Company Bank Role'
+@MappingRole: true
+define role ZR_COMPANY_BANK {
+    grant select on ZRCOMPANY_BANK
+      where (CompanyCode) = aspect pfcg_auth( F_BKPF_BUK , BUKRS );
+}

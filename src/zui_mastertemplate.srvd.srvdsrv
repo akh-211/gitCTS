@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_MasterTemplate_S'
+define service ZUI_MASTERTEMPLATE {
+  expose ZI_MASTERTEMPLATE_S as MasterTemplateAll;
+  expose ZI_MASTERTEMPLATE as MasterTemplate;
+}
