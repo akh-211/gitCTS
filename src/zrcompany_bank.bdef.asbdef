@@ -1,0 +1,61 @@
+managed implementation in class zbp_rcompany_bank unique;
+strict(2);
+with draft;
+
+define behavior for ZRCOMPANY_BANK //alias <alias_name>
+draft table zcompany_d
+with unmanaged save
+lock master total etag CompanyCode
+authorization master ( instance )
+//etag master <field_name>
+{
+
+  internal create;
+  update;
+  delete;
+
+  draft action ( features : instance ) Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+  field ( readonly ) CompanyCode, CompanyCodeName;
+
+  association _bank { create ( features : instance ); with draft; }
+}
+
+define behavior for ZRCOMPANY_BANK_detail //alias <alias_name>
+persistent table zcompany_bank
+draft table zcompany_bank_d
+lock dependent by _company
+authorization dependent by _company
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly ) itemid, Bukrs;
+  field ( numbering : managed ) itemid;
+  field ( mandatory ) begda , endda , hbkid;
+
+  determination check_housebank_company on modify { field Bukrs , hbkid ; }
+
+  validation validatedaterange on save { field begda , endda; }
+  validation validatenooverlap on save { field begda , endda; }
+
+ mapping for zcompany_bank
+  {
+    itemid = itemid;
+    Begda = begda;
+    Bukrs = bukrs;
+    Endda = endda;
+    Hbkid = hbkid;
+    LastChangedAt = last_changed_at;
+    LocalCreatedAt = local_created_at;
+    LocalCreatedBy = local_created_by;
+    LocalLastChangedAt = local_last_changed_at;
+    LocalLastChangedBy = local_last_changed_by;
+  }
+
+
+  association _company { with draft; }
+}

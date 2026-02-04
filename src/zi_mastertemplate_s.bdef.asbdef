@@ -1,0 +1,71 @@
+managed implementation in class ZBP_I_MASTERTEMPLATE_S unique;
+strict;
+with draft;
+define behavior for ZI_MasterTemplate_S alias MasterTemplateAll
+draft table ZTMST_TEMPL_D_S
+with unmanaged save
+lock master total etag LastChangedAtMax
+authorization master( global )
+{
+  field ( readonly )
+   SingletonID;
+
+  field ( notrigger )
+   SingletonID,
+   LastChangedAtMax;
+
+
+  update;
+  internal create;
+  internal delete;
+
+  draft action ( features : instance ) Edit;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+
+  association _MasterTemplate { create ( features : instance ); with draft; }
+
+}
+
+define behavior for ZI_MasterTemplate alias MasterTemplate ##UNMAPPED_FIELD
+persistent table ZTMST_TEMPLATE
+draft table ZTMST_TEMPLAT_D
+etag master LocalLastChangedAt
+lock dependent by _MasterTemplateAll
+authorization dependent by _MasterTemplateAll
+{
+  field ( mandatory : create )
+   Objectid;
+
+  field ( readonly )
+   SingletonID,
+   LastChangedAt,
+   LocalLastChangedAt;
+
+  field ( readonly : update )
+   Objectid;
+
+  field ( notrigger )
+   SingletonID,
+   LastChangedAt,
+   LocalLastChangedAt;
+
+
+  update( features : global );
+  delete( features : global );
+
+  mapping for ZTMST_TEMPLATE
+  {
+    Objectid = OBJECTID;
+    Filename = FILENAME;
+    Mietype = MIETYPE;
+    Attachment = ATTACHMENT;
+    LastChangedAt = LAST_CHANGED_AT;
+    LocalLastChangedAt = LOCAL_LAST_CHANGED_AT;
+  }
+
+  association _MasterTemplateAll { with draft; }
+
+}

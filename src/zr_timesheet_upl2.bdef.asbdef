@@ -1,0 +1,51 @@
+managed implementation in class ZBP_R_TIMESHEET_UPL2 unique;
+strict ( 2 );
+with draft;
+extensible;
+define behavior for ZR_TIMESHEET_UPL2 alias Upload
+persistent table ztimesheet_upl2
+extensible
+draft table ztmesheet_upl2_d
+etag master LocalLastChangedAt
+lock master total etag LastChangedAt
+authorization master ( none )
+{
+  field ( readonly )
+  UplID,
+  LocalCreatedBy,
+  LocalCreatedAt,
+  LocalLastChangedBy,
+  LocalLastChangedAt,
+  LastChangedAt;
+
+  field ( numbering : managed )
+  UplID;
+
+
+  create;
+  update;
+  delete;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+  static action UploadExcel deep parameter ZI_FILE_UPLOAD; //result[1] $self;
+
+  mapping for ztimesheet_upl2 corresponding extensible
+    {
+      UplID              = upl_id;
+      Filename           = filename;
+      Status             = status;
+      Succes             = succes;
+      Failed             = failed;
+      LocalCreatedBy     = local_created_by;
+      LocalCreatedAt     = local_created_at;
+      LocalLastChangedBy = local_last_changed_by;
+      LocalLastChangedAt = local_last_changed_at;
+      LastChangedAt      = last_changed_at;
+    }
+
+}

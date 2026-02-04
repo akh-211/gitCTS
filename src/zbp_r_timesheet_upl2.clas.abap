@@ -1,0 +1,5 @@
+CLASS zbp_r_timesheet_upl2 DEFINITION PUBLIC ABSTRACT FINAL FOR BEHAVIOR OF zr_timesheet_upl2.
+ENDCLASS.
+
+CLASS zbp_r_timesheet_upl2 IMPLEMENTATION.
+ENDCLASS.

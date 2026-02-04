@@ -1,0 +1,30 @@
+projection implementation in class ZBP_C_RCOMPANY_BANK unique;
+strict ( 2 );
+extensible;
+use draft;
+use side effects;
+define behavior for ZC_RCOMPANY_BANK alias ZcRcompanyBank
+extensible
+{
+  //use create;
+  use update;
+
+  use action Edit;
+  use action Activate;
+  use action Discard;
+  use action Resume;
+  use action Prepare;
+
+  use association _BANK { create; with draft; }
+
+}
+
+define behavior for ZC_RCOMPANY_BANK_DETAIL alias ZcRcompanyBankDetail
+extensible
+{
+  use update;
+  use delete;
+
+  use association _COMPANY { with draft; }
+
+}
